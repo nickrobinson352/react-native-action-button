@@ -95,6 +95,20 @@ export default class ActionButton extends Component {
   render() {
     return (
       <View
+         key={"ActionButton"}
+                ref={ref => {
+                    if (!ref) return
+                    let props = {
+                        order: 1,
+                        key: "ActionButton",
+                        title: 'This is the Action Button',
+                        description: 'This launches the Action Menu',
+                        outerCircleColor: '#3f52ae',
+                        cancelable : true
+                    }
+                    this.props.addAppTourTarget &&
+                    this.props.addAppTourTarget(AppTourView.for(ref, { ...props }))
+                }}
         pointerEvents="box-none"
         style={[this.getOverlayStyles(), this.props.style]}
       >
