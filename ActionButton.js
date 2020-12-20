@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { AppTour, AppTourSequence, AppTourView } from 'imokhles-react-native-app-tour'
+
 import PropTypes from "prop-types";
 import {
   StyleSheet,
