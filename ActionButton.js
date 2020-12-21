@@ -137,16 +137,8 @@ const ActionButton = props => {
               key={"ActionButton"}
               ref={ref => {
                 if (!ref) return
-                let props2 = {
-                  order: 1,
-                  key: "ActionButton",
-                  title: 'This is the Action Button',
-                  description: 'This launches the Action Menu',
-                  outerCircleColor: '#3f52ae',
-                  cancelable : true
-                }
-                props.addAppTourTarget &&
-                props.addAppTourTarget(AppTourView.for(ref, { ...props2 }))
+                props.getRef &&
+                props.getRef(ref)
               }}
               testID={props.testID}
               accessible={props.accessible}
