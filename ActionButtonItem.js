@@ -17,7 +17,7 @@ import {
   touchableBackground,
   DEFAULT_ACTIVE_OPACITY
 } from "./shared";
-
+import { AppTour, AppTourSequence, AppTourView } from 'imokhles-react-native-app-tour'
 const { width: WIDTH } = Dimensions.get("window");
 const SHADOW_SPACE = 10;
 const TEXT_HEIGHT = 22;
@@ -105,6 +105,7 @@ export default class ActionButtonItem extends Component {
       <Animated.View
         pointerEvents="box-none"
         style={[animatedViewStyle, parentStyle]}
+
       >
         <View>
           <Touchable
@@ -113,6 +114,11 @@ export default class ActionButtonItem extends Component {
               this.props.nativeFeedbackRippleColor,
               this.props.fixNativeFeedbackRadius
             )}
+            ref={ref => {
+              if (!ref) return
+              this.props.getRef &&
+              this.props.getRef(ref)
+            }}
             activeOpacity={this.props.activeOpacity || DEFAULT_ACTIVE_OPACITY}
             onPress={this.props.onPress}
           >
