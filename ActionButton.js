@@ -125,6 +125,12 @@ const ActionButton = props => {
             }
             : { marginHorizontal: props.offsetX, zIndex: props.zIndex };
 
+    const click = ()=>{
+      console.log('Got Function !!!!')
+      props.onPress();
+      if (props.children) animateButton();
+    }
+
     return (
         <View
             style={[
@@ -138,7 +144,7 @@ const ActionButton = props => {
               ref={ref => {
                 if (!ref) return
                 props.getRef &&
-                props.getRef(ref)
+                props.getRef(ref, click)
               }}
               testID={props.testID}
               accessible={props.accessible}
